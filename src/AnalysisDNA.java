@@ -1,3 +1,4 @@
+import java.io.CharArrayWriter;
 import java.io.File;
 import java.util.*;
 
@@ -117,6 +118,15 @@ public class AnalysisDNA {
         String copy = mySource;
         String results = strandSpliceBenchmark(ENZYME, splicee, strandType);
         System.out.println(results);
+        int count = 0;
+        while (count < 10){
+            String rez = strandSpliceBenchmark(ENZYME, splicee,strandType);
+            System.out.println(rez);
+            CharArrayWriter source = null;
+            source.append(copy);
+            count++;
+            mySource = source.toString();
+        }
 
         System.exit(0);
     }
