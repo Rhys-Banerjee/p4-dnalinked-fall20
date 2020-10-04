@@ -114,7 +114,7 @@ public class AnalysisDNA {
         // characters, by simply appending copy to myStrand each time the loop iterates
         // This will increase the number of breaks in mySource linearly, by the number
         // of breaks in copy
-
+        StringBuilder source = new StringBuilder(mySource);
         String copy = mySource;
         String results = strandSpliceBenchmark(ENZYME, splicee, strandType);
         System.out.println(results);
@@ -122,7 +122,6 @@ public class AnalysisDNA {
         while (count < 10){
             String rez = strandSpliceBenchmark(ENZYME, splicee,strandType);
             System.out.println(rez);
-            CharArrayWriter source = null;
             source.append(copy);
             count++;
             mySource = source.toString();
